@@ -60,12 +60,6 @@ while success and frame_number<=frame_count:
     result = result[0]
     data = result.data.decode("utf-8")
     data_type = result.type
-    if frame_number==0:
-        data='aaaaa'
-    if frame_number==60 or frame_number==120 :
-        data='bot5.club/start'
-    if frame_number==738:
-        data='bot5.club/end'
 
     if data=='bot5.club/start':
         print("QR Code detected, start data:",data ,frame_number)
@@ -99,7 +93,7 @@ span_human=convert(span)
 start_human=convert(start/fps)
 end_human=convert(end/fps)
 print(start_human,end_human,span_human)
-cmd = "ffmpeg -i '%s' -ss %s -t %s '%s'"%(args.input_mp4,start_human,span_human,args.output_mp4)
+cmd = "ffmpeg -i '%s' -ss %s -t %s -c copy '%s'"%(args.input_mp4,start_human,span_human,args.output_mp4)
 print(cmd)
 if span > 10:
     os.system(cmd)
