@@ -31,6 +31,7 @@ fps = cap.get(cv2.CAP_PROP_FPS)
 
 # Get the total numer of frames in the video.
 frame_count = cap.get(cv2.CAP_PROP_FRAME_COUNT)
+frame_count = frame_count - fps
 frame_number = 0
 success=True
 start=-1
